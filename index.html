@@ -1,7 +1,29 @@
-<form>
-  <h3>Registration Form</h3>
-  Username: <input type="text"><br>
-  Password: <input type="password"><br>
-  Confirm Password: <input type="password"><br>
-  <button type="submit">Register</button>
-</form>
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Registration Page</h2>
+
+  <form onsubmit="saveUser(); return false;">
+    Username: <input type="text" id="regUser" required><br><br>
+    Password: <input type="password" id="regPass" required><br><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    function saveUser() {
+      let user = document.getElementById("regUser").value;
+      let pass = document.getElementById("regPass").value;
+
+      // Save to browser storage
+      localStorage.setItem("username", user);
+      localStorage.setItem("password", pass);
+
+      alert("Registration Successful!");
+
+      // Redirect to login page
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
